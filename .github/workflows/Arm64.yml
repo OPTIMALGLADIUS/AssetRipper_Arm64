@@ -6,17 +6,12 @@ jobs:
   build:
     runs-on: windows-latest
     steps:
-      - name: Setup Arm64 env
-        run: sudo apt install gcc-aarch64-linux-gnu g++-aarch64-linux-gnu binutils-aarch64-linux-gnu -y
-        
+      
       - uses: actions/checkout@v4
       - name: Setup .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
-
-      - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v3
 
       - name: Publish
         run: dotnet publish -c Release -r linux-arm64
