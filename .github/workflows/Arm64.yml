@@ -19,9 +19,12 @@ jobs:
             cd dotnet
             wget https://download.visualstudio.microsoft.com/download/pr/f7739964-9e84-4bb7-9435-509458a15f9c/a95ad7f9deb8ce2fd30173dfe86f55ba/dotnet-sdk-9.0.100-rc.1.24452.12-linux-arm64.tar.gz
             tar -xf dotnet-sdk-9.0.100-rc.1.24452.12-linux-arm64.tar.gz
-            ls && pwd
-            export DOTNET_ROOT=/home/runner/work/AssetRipper_Arm64/AssetRipper_Arm64/dotnet
             cd ..
+            cp -rf dotnet /usr/lib/.
+            ln -s /usr/lib/dotnet/dotnet /usr/bin/dotnet
+            mkdir /etc/dotnet
+            echo "/usr/lib/dotnet" > /etc/dotnet/install_location
+            bash
             dotnet publish -c Release -r linux-arm64
             ls -R ./Source/0Bins/AssetRipper.GUI.Free/Release/
             date -u > ./Source/0Bins/AssetRipper.GUI.Free/Release/linux-arm64/publish/compile_time.txt
