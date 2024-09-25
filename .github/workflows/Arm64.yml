@@ -14,7 +14,7 @@ jobs:
           distro: ubuntu22.04
           run: |
             apt update
-            apt install wget -y
+            apt install wget libicu-dev -y
             mkdir dotnet
             cd dotnet
             wget https://download.visualstudio.microsoft.com/download/pr/f7739964-9e84-4bb7-9435-509458a15f9c/a95ad7f9deb8ce2fd30173dfe86f55ba/dotnet-sdk-9.0.100-rc.1.24452.12-linux-arm64.tar.gz
